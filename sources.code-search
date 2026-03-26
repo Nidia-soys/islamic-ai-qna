@@ -1,0 +1,61 @@
+# Query: sources
+# ContextLines: 1
+
+14 results - 2 files
+
+index.html:
+  235            <article>
+  236:             <h3>Sources &amp; Methodology</h3>
+  237              <p>
+  238                This Q&amp;A collection is designed to reflect the
+  239:               <strong>central sources of Islam</strong>: the Qur'an, the
+  240                authentic Sunnah of the Prophet Muhammad ﷺ, and the understanding
+
+  273          <p>
+  274:           The answers presented here are based on recognized sources and
+  275            mainstream Sunni scholarship, but they are
+
+script.js:
+   34      `,
+   35:     source: [
+   36        "Qur'an 4:103",
+
+   66      `,
+   67:     source: ["Qur'an 17:78", "Classical fiqh works of the four Sunni schools"],
+   68    },
+
+   94      `,
+   95:     source: [
+   96        "Hadith: Ṣaḥīḥ al-Bukhārī (on invalidators of wudu)",
+
+  126      `,
+  127:     source: ["Qur'an 2:183", "Hadith: Ṣaḥīḥ al-Bukhārī &amp; Muslim"],
+  128    },
+
+  150      `,
+  151:     source: [
+  152        "Hadith: Ṣaḥīḥ al-Bukhārī &amp; Muslim (on forgetful eating while fasting)",
+
+  179      `,
+  180:     sources: ["Hadith: “Actions are only by intentions” (Ṣaḥīḥ al-Bukhārī)"],
+  181    },
+
+  206      `,
+  207:     sources: [
+  208        "Qur'an 68:4",
+
+  235      `,
+  236:     sources: [
+  237        "Qur'an 17:23–24",
+
+  265      `,
+  266:     sources: [
+  267        "Hadith: Ṣaḥīḥ al-Bukhārī &amp; Muslim (on doubtful matters)",
+
+  294      `,
+  295:     sources: [
+  296        "Hadith: Ṣaḥīḥ al-Bukhārī &amp; Muslim (on loving the Prophet ﷺ)",
+
+  426      (entry.tags || []).join(" "),
+  427:     (entry.sources || []).join(" "),
+  428    ];

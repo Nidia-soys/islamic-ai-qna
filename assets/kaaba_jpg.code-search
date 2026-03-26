@@ -1,0 +1,35 @@
+# Query: kaaba.jpg
+# ContextLines: 1
+
+11 results - 2 files
+
+index.html:
+  19        window.FS_BLUR_BG_CONFIG = {
+  20:         // Default image used by the component is: "assets/kaaba.jpg.jfif"
+  21:         // src: "assets/kaaba.jpg.jfif",
+  22          blur: 10,
+
+  67              ## TRICK: replace this image with high-res Kaaba photo
+  68:             Place a file like kaaba.jpg.jfif inside an assets folder at the project root:
+  69:             /assets/kaaba.jpg.jfif
+  70            -->
+
+  72              class="hero-bg-image hero-bg-kaaba"
+  73:             data-img="assets/kaaba.jpg.jfif"
+  74            ></div>
+
+script.js:
+  364   * Usage:
+  365:  *   mountFullScreenBlurredBackground({ src: "assets/kaaba.jpg.jfif", blur: 6, overlayOpacity: 0.45 });
+  366   */
+
+  368    const defaults = {
+  369:     // Default requested: assets/kaaba.jpg.jfif
+  370:     // (Your repo currently also contains: assets/kaaba.jpg.jfif)
+  371:     src: "assets/kaaba.jpg.jfif",
+  372:     fallbackSrc: "assets/kaaba.jpg.jfif",
+  373      blur: 10, // px
+
+  617        // You can override dynamically:
+  618:       // src: "assets/kaaba.jpg.jfif.jfif",
+  619        // blur: 12,

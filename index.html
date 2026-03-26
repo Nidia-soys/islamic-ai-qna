@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Islamic AI Chatbot</title>
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Islamic Q&A website providing answers about prayer, fasting, morals, and everyday life based on the Qur'an, authentic Sunnah, and classical scholarship."
+    />
+    <meta
+      name="keywords"
+      content="Islam, Quran, Hadith, Fiqh, Prayer, Fasting, Morals, Islamic Questions, Sunni, Four Imams"
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ctext y=%2748%27 font-size=%2748%27%3E%F0%9F%95%8C%3C/text%3E%3C/svg%3E" />
+    <title>VERITY | Answers from Qur'an &amp; Sunnah</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      // Example: dynamically control the global blurred background.
+      // Remove or edit this block anytime.
+      window.FS_BLUR_BG_CONFIG = {
+        // Default image used by the component is: "assets/kaaba.jpg.jfif"
+        // src: "assets/kaaba.jpg.jfif",
+        blur: 10,
+        overlayColor: "#000",
+        overlayOpacity: 0.5,
+      };
+    </script>
+  </head>
+  <body>
+    <h2>Islamic Q&A 🤖</h2>
+
+<input id="msg" placeholder="Write your question..." />
+<button onclick="sendMessage()">Send</button>
+
+<p><strong>Answer:</strong></p>
+<p id="answer"></p>
+
+<script>
+async function send() {
+  const message = document.getElementById('msg').value;
+
+  const res = await fetch('http://localhost:5000/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message })
+  });
+
+  const data = await res.json();
+  document.getElementById('cevap').innerText = data.reply;
+}
+</script>
+    <header class="site-header" aria-label="Main site header">
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="logo-area">
+          <div class="logo-mark" aria-hidden="true">ﷺ</div>
+          <div class="logo-text">
+            <span class="logo-title">VERITY Q&A</span>
+            <span class="logo-subtitle">Clear Islamic Answers, Rooted in Revelation</span>
+          </div>
+        </div>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#search-section">Search</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#disclaimer">Disclaimer</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 id="hero-title">
+            Based on Qur'an &amp; Authentic Sunnah
+          </h1>
+          <p class="hero-tagline">
+            Qur'an, authentic Hadith, and the guidance of the classical Sunni
+            Imams, presented in accessible and respectful English.
+          </p>
+          <a href="#search-section" class="hero-cta">Ask a question</a>
+        </div>
+        <div class="hero-background-images" aria-hidden="true">
+          <!--
+            ## TRICK: replace this image with high-res Kaaba photo
+            Place a file like kaaba.jpg.jfif inside an assets folder at the project root:
+            /assets/kaaba.jpg.jfif
+          -->
+          <div
+            class="hero-bg-image hero-bg-kaaba"
+            data-img="assets/kaaba.jpg.jfif"
+          ></div>
+          <!--
+            ## TRICK: replace this image with high-res Madinah (Prophet's Mosque) photo
+            Place it at:
+            /assets/madinah.jfif
+          -->
+          <div
+            class="hero-bg-image hero-bg-madinah"
+            data-img="assets/madinah.jfif"
+          ></div>
+          <!--
+            ## TRICK: replace this image with elegant Arabic calligraphy of Allah's names
+            Example path:
+            /assets/asma-ul-husna-calligraphy.jfif
+          -->
+          <div
+            class="hero-bg-image hero-bg-calligraphy"
+            data-img="assets/asma-ul-husna-calligraphy.jfif"
+          ></div>
+        </div>
+      </section>
+    </header>
+
+    <main id="main-content">
+      <section id="search-section" class="search-section" aria-label="Question search">
+        <div class="section-heading">
+          <h2>Ask a Question</h2>
+          <p>
+            Type your question in clear English. The system searches through a
+            curated set of Q&amp;A based on Qur'an, authentic Hadith, and
+            classical Sunni scholarship.
+          </p>
+        </div>
+        <form
+          class="search-form"
+          role="search"
+          aria-label="Search Islamic questions and answers"
+        >
+          <label class="visually-hidden" for="question-input">
+            Type your question
+          </label>
+          <div class="search-input-wrapper">
+            <input
+              id="question-input"
+              type="search"
+              name="q"
+              placeholder="Example: How do I pray Fajr? Is my fast valid if I forgot and ate?"
+              autocomplete="off"
+              aria-describedby="search-help-text"
+            />
+            <button type="submit" class="btn-primary">
+              Search
+            </button>
+          </div>
+          <p id="search-help-text" class="search-help">
+            Use simple keywords like "wudu", "fasting", "character", "parents".
+          </p>
+        </form>
+
+        <section
+          id="search-results"
+          class="search-results"
+          aria-live="polite"
+          aria-label="Search results"
+        >
+          <!-- Dynamic Q&A cards will be injected here by script.js -->
+        </section>
+      </section>
+
+      <section id="categories" class="categories-section" aria-label="Browse by category">
+        <div class="section-heading">
+          <h2>Browse by Category</h2>
+          <p>
+            Explore common questions organized by core areas of Islamic life.
+          </p>
+        </div>
+
+        <div class="category-tabs" role="tablist" aria-label="Question categories">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-prayer"
+            id="tab-prayer"
+            class="category-tab"
+            data-category="prayer"
+          >
+            Prayer (Ṣalāh)
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-fasting"
+            id="tab-fasting"
+            class="category-tab"
+            data-category="fasting"
+          >
+            Fasting (Ṣawm)
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-morals"
+            id="tab-morals"
+            class="category-tab"
+            data-category="morals"
+          >
+            Character &amp; Morals
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-other"
+            id="tab-other"
+            class="category-tab"
+            data-category="other"
+          >
+            Everyday Matters
+          </button>
+        </div>
+
+        <div class="category-panels">
+          <section
+            id="panel-prayer"
+            role="tabpanel"
+            aria-labelledby="tab-prayer"
+            class="category-panel is-active"
+          >
+            <div class="qa-list" data-category-list="prayer"></div>
+          </section>
+          <section
+            id="panel-fasting"
+            role="tabpanel"
+            aria-labelledby="tab-fasting"
+            class="category-panel"
+          >
+            <div class="qa-list" data-category-list="fasting"></div>
+          </section>
+          <section
+            id="panel-morals"
+            role="tabpanel"
+            aria-labelledby="tab-morals"
+            class="category-panel"
+          >
+            <div class="qa-list" data-category-list="morals"></div>
+          </section>
+          <section
+            id="panel-other"
+            role="tabpanel"
+            aria-labelledby="tab-other"
+            class="category-panel"
+          >
+            <div class="qa-list" data-category-list="other"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="section-heading">
+          <h2>About This Site</h2>
+        </div>
+        <div class="about-grid">
+          <article>
+            <h3>source &amp; Methodology</h3>
+            <p>
+              This Q&amp;A collection is designed to reflect the
+              <strong>central source of Islam</strong>: the Qur'an, the
+              authentic Sunnah of the Prophet Muhammad ﷺ, and the understanding
+              of the early Muslim community and leading Sunni Imams.
+            </p>
+            <p>
+              Where issues admit more than one valid scholarly view, we aim to
+              indicate this clearly and present answers that are
+              <strong>respectful of the four Sunni schools of law</strong>
+              (Ḥanafī, Mālikī, Shāfiʿī, Ḥanbalī), avoiding harshness and
+              polemics.
+            </p>
+          </article>
+          <article>
+            <h3>Clarity with Reverence</h3>
+            <p>
+              English explanations are written to be clear and accessible while
+              preserving <strong>the dignity of the sacred texts</strong>. Key
+              verses and narrations are mentioned with references (for example,
+              "Qur'an 2:183" or "Ṣaḥīḥ al-Bukhārī").
+            </p>
+            <p>
+              This site is intended as a <strong>learning aid</strong>, not as
+              a replacement for qualified scholars. For complex personal cases,
+              we encourage you to speak directly with reliable people of
+              knowledge in your community.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="disclaimer" class="disclaimer-section" aria-label="Important disclaimer">
+        <div class="section-heading">
+          <h2>Important Disclaimer</h2>
+        </div>
+        <p>
+          The answers presented here are based on recognized source and
+          mainstream Sunni scholarship, but they are
+          <strong>general educational guidance</strong>. They may not capture
+          every nuance of your personal situation.
+        </p>
+        <p>
+          Always verify important religious decisions with
+          <strong>trustworthy local scholars</strong> who understand your
+          circumstances and follow established Islamic legal methodology.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="footer-inner">
+        <p>
+          &copy; <span id="current-year"></span> Islamic Q&amp;A. All rights
+          reserved.
+        </p>
+        <p>
+          "Our Lord, grant us in this world good and in the Hereafter good and
+          protect us from the punishment of the Fire." (Qur'an 2:201)
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
