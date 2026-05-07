@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Islamic AI Chatbot</title>
+    <title>VERITY</title>
     <meta name="viewport" 
     content="width=device-width, initial-scale=1.0" />
     <meta
@@ -13,8 +13,9 @@
       name="keywords"
       content="Islam, Quran, Hadith, Fiqh, Prayer, Fasting, Morals, Islamic Questions, Sunni, Four Imams"
     />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ctext y=%2748%27 font-size=%2748%27%3E%F0%9F%95%8C%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700&display=swap" />
     <title>VERITY | Answers from Qur'an &amp; Sunnah</title>
+
     <link rel="stylesheet" href="style.css" />
     <script>
       // Example: dynamically control the global blurred background.
@@ -29,13 +30,14 @@
     </script>
   </head>
   <body>
-    <h2>Islamic Q&A 🤖</h2>
+<!-- <h2>Islamic Q&A 🤖</h2>
 
-<input id="msg" placeholder="Write your question..." />
-<button onclick="sendMessage()">Send</button>
+  <input id="msg" placeholder="Write your question..." />
+ <button onclick="sendMessage()">Send</button> 
+   
 
 <p><strong>Answer:</strong></p>
-<p id="answer"></p>
+<p id="answer"></p>-->
 
 <script>
 async function send() {
@@ -50,7 +52,7 @@ async function send() {
   });
 
   const data = await res.json();
-  document.getElementById('cevap').innerText = data.reply;
+  document.getElementById('reply').innerText = data.reply;
 }
 </script>
     <header class="site-header" aria-label="Main site header">
@@ -58,8 +60,8 @@ async function send() {
         <div class="logo-area">
           <div class="logo-mark" aria-hidden="true">ﷺ</div>
           <div class="logo-text">
-            <span class="logo-title">VERITY Q&A</span>
-            <span class="logo-subtitle">Clear Islamic Answers, Rooted in Revelation</span>
+            <span class="logo-title">VERITY</span>
+            <span class="logo-subtitle">Answers from Qur'an &amp; Sunnah</span>
           </div>
         </div>
         <button
@@ -81,7 +83,7 @@ async function send() {
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1 id="hero-title">
-            Based on Qur'an &amp; Authentic Sunnah
+            BASED ON QUR'AN &amp; AUTHENTIC SUNNAH
           </h1>
           <p class="hero-tagline">
             Qur'an, authentic Hadith, and the guidance of the classical Sunni
