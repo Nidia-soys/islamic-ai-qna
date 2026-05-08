@@ -1,43 +1,75 @@
-
-require("dotenv").config;
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+const axios = require("axios");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT  ||  5000;
+const qaData = JSON.parse(
+  fs.readFileSync("./assets/qa-data.json", "utf8"));
 
-app.post('/ask', async (req, res) => {
+function searchLocal(question) {
+  const q = question.toLowerCase();
+  
+  return qaData.find(item => 
+    item.question.toLowerCase().includes(q)
+   );
+}  
+/* health */
+app.get("/", (req,res) => {
+  res.send("VERITY backend running.");
+});
+ 
+app.post("/chat", async(req,res) => {
+  const { message } = req.body;
+
   try {
-    const { question } = req.body;
-    if(!question) {
-      return res.status(400).json({ error: "Question is required!"});
-    }
-    
-    const response = await fetch("http://localhost:5678/webhook/question", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ question })
+    const local = 
+      searchLocal(message);
+
+    if(local) {
+      return res.json({
+        source: "qa-data",
+        reply: local.answer
+      });
+    }  
+
+    const ollama = 
+     await axios.post(
+      "http://localhost:11434/api/generate",
+      {
+        model: "llama3",
+        stream: false,
+        prompt:
+        `
+        You are an Islamic assistant.
+
+        Priority:
+        1. Qur'an
+        2. Authentic Hadith
+        3. Seerah
+        4. Four Sunni Madhhabs
+
+        Question:
+        ${message}
+        `
+      });
+
+      return res.json({
+        source: "ollama",
+        reply: ollama.data.response
+      });
+   } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      error: "Server error."
     });
+   }
+});
 
-    const data = await response.json();
-    res.json({
-      answer: data.answer || "No response"
+    app.listen(500, () => {
+      console.log("Server on 5000");
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong..." });
-  }
-});
-
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server ${PORT} is running...`);
-});
