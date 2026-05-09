@@ -18,11 +18,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <script>
-      // Example: dynamically control the global blurred background.
-      // Remove or edit this block anytime.
       window.FS_BLUR_BG_CONFIG = {
-        // Default image used by the component is: "assets/kaaba.jpg.jfif"
-        // src: "assets/kaaba.jpg.jfif",
         blur: 10,
         overlayColor: "#000",
         overlayOpacity: 0.5,
@@ -30,15 +26,6 @@
     </script>
   </head>
   <body>
-<!-- <h2>Islamic Q&A 🤖</h2>
-
-  <input id="msg" placeholder="Write your question..." />
- <button onclick="sendMessage()">Send</button> 
-   
-
-<p><strong>Answer:</strong></p>
-<p id="answer"></p>-->
-
 <script>
 async function send() {
   const message = document.getElementById('msg').value;
@@ -60,7 +47,7 @@ async function send() {
         <div class="logo-area">
           <div class="logo-mark" aria-hidden="true">ﷺ</div>
           <div class="logo-text">
-            <span class="logo-title">VERITY</span>
+            <span class="logo-title"> ﷺVERITY </span>
             <span class="logo-subtitle">Answers from Qur'an &amp; Sunnah</span>
           </div>
         </div>
@@ -73,9 +60,7 @@ async function send() {
         </button>
         <ul class="nav-links">
           <li><a href="#search-section">Search</a></li>
-          <li><a href="#categories">Categories</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#disclaimer">Disclaimer</a></li>
         </ul>
       </nav>
 
@@ -83,41 +68,26 @@ async function send() {
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1 id="hero-title">
-            BASED ON QUR'AN &amp; AUTHENTIC SUNNAH
+            BASED ON 
+            QUR'AN &amp; SUNNAH
           </h1>
           <p class="hero-tagline">
-            Qur'an, authentic Hadith, and the guidance of the classical Sunni
-            Imams, presented in accessible and respectful English.
+            Authentic Islamic knowledge rooted in the Qur’an, the Sunnah, and the understanding of the classical Sunni Imams.
           </p>
           <a href="#search-section" class="hero-cta">Ask a question</a>
         </div>
         <div class="hero-background-images" aria-hidden="true">
-          <!--
-            ## TRICK: replace this image with high-res Kaaba photo
-            Place a file like kaaba.jpg.jfif inside an assets folder at the project root:
-            /assets/kaaba.jpg.jfif
-          -->
           <div
             class="hero-bg-image hero-bg-kaaba"
-            data-img="assets/kaaba.jpg.jfif"
+            data-img="./assets/kaaba.jpg.jfif"
           ></div>
-          <!--
-            ## TRICK: replace this image with high-res Madinah (Prophet's Mosque) photo
-            Place it at:
-            /assets/madinah.jfif
-          -->
           <div
             class="hero-bg-image hero-bg-madinah"
-            data-img="assets/madinah.jfif"
+            data-img="./assets/madinah.jfif"
           ></div>
-          <!--
-            ## TRICK: replace this image with elegant Arabic calligraphy of Allah's names
-            Example path:
-            /assets/asma-ul-husna-calligraphy.jfif
-          -->
           <div
             class="hero-bg-image hero-bg-calligraphy"
-            data-img="assets/asma-ul-husna-calligraphy.jfif"
+            data-img="./assets/asma-ul-husna-calligraphy.jfif"
           ></div>
         </div>
       </section>
@@ -128,9 +98,7 @@ async function send() {
         <div class="section-heading">
           <h2>Ask a Question</h2>
           <p>
-            Type your question in clear English. The system searches through a
-            curated set of Q&amp;A based on Qur'an, authentic Hadith, and
-            classical Sunni scholarship.
+            Search trusted Islamic answers grounded in the Qur’an and authentic Sunnah.
           </p>
         </div>
         <form
@@ -139,14 +107,14 @@ async function send() {
           aria-label="Search Islamic questions and answers"
         >
           <label class="visually-hidden" for="question-input">
-            Type your question
+
           </label>
           <div class="search-input-wrapper">
             <input
               id="question-input"
               type="search"
               name="q"
-              placeholder="Example: How do I pray Fajr? Is my fast valid if I forgot and ate?"
+              placeholder="Example: 'How do I pray Fajr?'"
               autocomplete="off"
               aria-describedby="search-help-text"
             />
@@ -155,7 +123,6 @@ async function send() {
             </button>
           </div>
           <p id="search-help-text" class="search-help">
-            Use simple keywords like "wudu", "fasting", "character", "parents".
           </p>
         </form>
 
@@ -164,8 +131,6 @@ async function send() {
           class="search-results"
           aria-live="polite"
           aria-label="Search results"
-        >
-          <!-- Dynamic Q&A cards will be injected here by script.js -->
         </section>
       </section>
 
@@ -197,16 +162,6 @@ async function send() {
             data-category="fasting"
           >
             Fasting (Ṣawm)
-          </button>
-          <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="panel-morals"
-            id="tab-morals"
-            class="category-tab"
-            data-category="morals"
-          >
-            Character &amp; Morals
           </button>
           <button
             role="tab"
@@ -262,7 +217,7 @@ async function send() {
         </div>
         <div class="about-grid">
           <article>
-            <h3>source &amp; Methodology</h3>
+            <h3>Source &amp; Methodology</h3>
             <p>
               This Q&amp;A collection is designed to reflect the
               <strong>central source of Islam</strong>: the Qur'an, the

@@ -23,6 +23,9 @@ app.get("/", (req,res) => {
 });
  
 app.post("/chat", async(req,res) => {
+  console.log(req.body);
+  console.log("local:", local);
+  console.log(ollama.data);
   const { message } = req.body;
 
   try {

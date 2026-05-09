@@ -5,6 +5,76 @@ let qaData = [];
 let currentCategory = "all";
 let searchQuery = "";
 
+async function askBackend(message) {
+
+  try {
+    const response =
+    await fetch ( 
+      "httpÇ//localhost:5000/chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify ({
+          message
+        })
+      }
+    );
+
+    return await response.json();
+
+  } catch (error) {
+    console.error(error);
+
+    return {
+      reply: "Backend connection failed!"
+    };
+  }
+}
+
+const form = 
+  document.querySelector(".search-form");
+
+const input =
+  document.getElementById("question-input");
+  
+const result =
+  document.getElementById("search-results");
+  
+form.addEventListener(
+  "submit",
+  async (e) => {
+    e.preventDefault();
+    const question =
+      input.value.trim();
+
+    if (!question) return;
+    
+    results.innerHTML = 
+      "<p>Thinking...</p>";
+
+    const data =
+      await askBackend(question);
+      
+    results.innerHTML = 
+      <div class="qa-card">
+        <h3 class="qa-question">
+          ${question}
+        </h3>
+
+        <p class="qa-answer">
+          ${data.reply}
+        </p>
+
+        <div class="qa-source">
+          Source: ${data.source}
+        </div>
+      </div>  
+      ;
+  }
+);  
+
 // HELPERS
 // ================================
 const toSafeString = (value, fallback = "") =>

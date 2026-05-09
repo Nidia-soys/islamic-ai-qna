@@ -24,8 +24,8 @@ body {
   position: relative;
   background: 
       linear-gradient(
-        rgba(0,0,0,0.82),
-        rgba(0,0,0,0.88)
+        rgba(0,0,0,0.45), /* degree of turbidity */
+        rgba(0,0,0,0.58)
       ),
       url("./assets/kaaba.jpg.jfif");
 
@@ -42,9 +42,9 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* =========================================================
@@ -102,8 +102,8 @@ body::after {
   justify-content: space-between;
   align-items: center;
   border-radius: 22px;
-  background: rgba(44, 129, 87, 0.55);
-  backdrop-filter:blur (16px);
+  background: rgba(47, 120, 83, 0.55);
+  backdrop-filter:blur (48px);
   border: 1px solid rgba(212,175,55,0.08);
   box-shadow: 0 0 30px rgba(0,0,0,0.22);
 }
@@ -268,7 +268,7 @@ body::after {
     1px solid rgba(212,175,55,0.08);
 
   border-radius: 30px;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(4px);
   box-shadow:
     0 0 35px rgba(0,0,0,0.25);
 }
@@ -441,6 +441,7 @@ body::after {
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 24px;
   margin-top: 30px;
+  color: beige;
 }
 
 .about-grid article {
@@ -451,13 +452,14 @@ body::after {
 }
 
 .about-grid h3 {
-  color: #d4af37;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #f5f5f5;
   margin-bottom: 14px;
 }
 
 .about-grid p {
   line-height: 1.9;
-  color: rgba(255,255,255,0.082);
+  color: #f7d97c;
   margin-top: 16px;
 }
 
